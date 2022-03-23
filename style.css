@@ -5,30 +5,87 @@
  --dark: #fefcfb;
  --blue: #001f54;
  --blue2: #034078;
- --cyan: #00ffff;
+ --cyan: #00ffff
+}
+
+::-webkit-scrollbar-track {
+ background-color: transparent
+}
+
+::-webkit-scrollbar {
+ width: 3px;
+ height: 3px;
+ background-color: transparent;
+ border-radius: 8px
+}
+
+::-webkit-scrollbar-thumb {
+ background-color: var(--cyan);
+ border-radius: 8px
 }
 
 html {
  background-color: var(--main);
- color: white;
+ color: white
 }
 
-.dv, .dv2{
- margin: 60px;
- border-radius: 15px;
- margin-top: 250px;
- text-align: cente;
- font-size: 25px;
+body {
+ margin: 120px auto;
+ padding: 0 20px;
+ text-align: center;
+ font-size: 20px;
  font-family: "Poppins", sans-serif;
+ max-width: 550px
 }
 
-.dv h1 strong, .dv2 h1 strong{
- color: var(--cyan);
+h1 {
+ line-height: 1.2;
+ letter-spacing: 1.2px;
 }
-.dv p, .dv2 p{
- text-align: justify;
+
+strong {
+ color: var(--cyan)
 }
+
+p {
+ text-align: justify
+}
+
 hr {
  border: none;
  border-top: 1px solid white;
 }
+a {
+ color: var(--cyan);
+ text-decoration: none;
+ text-align: center;
+}
+/*snow effect here
+
+html:after {
+ content: '';
+ display: block;
+ position: absolute;
+ z-index: 2;
+ top: 0;
+ left: 0;
+ right: 0;
+ bottom: 0;
+ pointer-events: none;
+ background-image: url('https://cdn.glitch.me/2a4d780f-b9e8-4739-9886-831c1d5fcdb0%2F26a4f5a3-8dcd-4eed-afcb-72f99c6aa653.image.png?v=1639136324336'), url('https://cdn.glitch.me/2a4d780f-b9e8-4739-9886-831c1d5fcdb0%2F7f115bbb-5f47-4e19-98b7-dbf4a359a00c.image.png?v=1639136365819'), url('https://cdn.glitch.me/2a4d780f-b9e8-4739-9886-831c1d5fcdb0%2F5a01e66e-33a3-4aad-96f5-87d8336d3fa4.image.png?v=1639136393414');
+ animation: snow 10s linear infinite;
+}
+
+@keyframes snow {
+ 0% {
+  background-position: 0px 0px, 0px 0px, 0px 0px;
+ }
+
+ 50% {
+  background-position: 500px 500px, 100px 200px, -100px 150px;
+ }
+
+ 100% {
+  background-position: 500px 1000px, 200px 400px, -100px 300px;
+ }
+}*\
