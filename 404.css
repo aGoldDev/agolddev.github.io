@@ -12,6 +12,7 @@ html {
  background-color: var(--main);
  color: white;
  margin: 10px;
+ font-family: "Poppins", sans-serif;;
 }
 
 .dv0 h1 {
