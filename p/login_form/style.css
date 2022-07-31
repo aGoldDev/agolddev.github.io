@@ -27,7 +27,8 @@ h1 {
  margin: 0 auto;
 }*/
 
-div {
+.h {
+ box-shadow: 2px 2px 5px var(--main);
  box-align: center
 }
 
@@ -42,8 +43,12 @@ form {
  transform: translate(-50%, -50%);
 }
 
-@media screen and (max-width: 2131px) {
+@media screen and (min-width: 600px) {
 
+label {
+ margin-right: 10%;
+ margin-left: 10%;
+}
  input[type=email],
  input[type=password] {
   box-sizing: border-box;
@@ -52,24 +57,22 @@ form {
   border-radius: 4px;
   width: 100%;
   padding: 12px 20px;
-  margin: 5px 0;
   color: var(--main);
   font-family: "Poppins", sans-serif;
  }
-}
 
-input[type=email]:focus,
-input[type=password]:focus {
- outline: none !important;
- transition: 0.4s;
- box-shadow: 10px var(--main);
- width: 100%;
- padding: 12px 20px;
- margin: 8px 0;
- color: var(--main);
- border-radius: 10px;
- border: 2px solid var(--main);
- font-family: "Poppins", sans-serif;
- background-color: var(--dark);
- border-color: var(--main);
+ input[type=email]:focus,
+ input[type=password]:focus {
+  outline: none !important;
+  transition: 0.4s;
+  box-shadow: 10px var(--main);
+  width: 100%;
+  padding: 12px 20px;
+  color: var(--main);
+  border-radius: 10px;
+  border: 2px solid var(--main);
+  font-family: "Poppins", sans-serif;
+  background-color: var(--dark);
+  border-color: var(--main);
+ }
 }
