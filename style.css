@@ -1,11 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
 :root {
- --main: #0a1128;
+ --main: #00140c;
  --dark: #fefcfb;
- --blue: #001f54;
+ --blue: #00140c;
  --blue2: #034078;
- --cyan: #00ffff
+ --cyan: #02d07d
 }
 
 ::-webkit-scrollbar-track {
@@ -97,5 +97,5 @@ a:focus::after {
 
 italic {
  font-size: 20px;
- color: #006565;
+ color: #007f00;
 }
