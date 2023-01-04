@@ -76,3 +76,7 @@ label {
   border-color: var(--main);
  }
 }
+div image {
+ height: 100px;
+ width: 100px;
+}
