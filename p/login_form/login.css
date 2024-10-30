@@ -1,0 +1,155 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+:root {
+    --main: #00140c;
+    --dark: #fefcfb;
+    --blue2: #000c0a;
+    --cyan: #02d07d;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+html {
+    background-color: var(--main);
+    color: var(--dark);
+}
+
+body,
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+}
+
+.login-container {
+    background-color: var(--blue2);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    flex-direction: column; /* Ensure elements are stacked vertically */
+}
+
+h1 {
+    color: var(--cyan);
+    font-size: 2rem;
+    margin-bottom: 20px; /* Spacing below the title */
+}
+
+/* Form input styling */
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+    width: 100%;
+}
+
+.form-group label {
+    display: block;
+    color: #f0fff0;
+    font-size: 1rem;
+    margin-bottom: 5px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    color: #333;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+/* Password container with button */
+.password-container {
+    display: flex;
+    align-items: center;
+}
+
+.password-container input {
+    width: calc(100% - 50px);
+    border-radius: 5px 0 0 5px;
+}
+
+.password-container button {
+    padding: 13px;
+    width: 50px;
+    background-color: var(--cyan);
+    border: none;
+    color: var(--blue2);
+    font-weight: bold;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+}
+
+.forgot-password {
+  display: block;
+  text-align: right;
+  margin-top: 5px;
+  color: var(--cyan); /* Matches your color scheme */
+  font-size: 0.9rem; /* Slightly smaller text */
+  text-decoration: none;
+}
+
+button[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: var(--blue2);
+    color: var(--cyan);
+    font-size: 1rem;
+    font-weight: bold;
+    border: 3px solid var(--cyan);
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+button[type="submit"]:hover,
+button[type="submit"]:focus{
+  background-color: var(--cyan);
+  color: var(--blue2);
+  transform: translate3d(0, 0.2em, 0)
+}
+
+/* Link styling */
+.signup-link {
+    margin-top: 20px;
+    font-size: 0.9rem;
+    color: #f0fff0;
+}
+
+.signup-link a {
+    color: var(--cyan);
+    text-decoration: none;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .login-container {
+        padding: 20px;
+        max-width: 90%;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .login-container {
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+}

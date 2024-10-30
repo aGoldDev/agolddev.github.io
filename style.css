@@ -158,6 +158,16 @@ h2{
     padding: 20px;
     border-radius: 5px;
     width: calc(50% - 20px);
+    max-width: 500px;
+}
+
+.project-img {
+  width: 100%; /* Make image fill the container width */
+  max-width: 3000px; /* Limit maximum width */
+  height: auto;
+  border-radius: 5px;
+  display: block;
+  margin-bottom: 15px;
 }
 
 /* Responsive Design */
