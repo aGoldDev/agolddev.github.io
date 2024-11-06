@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta name="description" content="The Monty Hall Problem is a probability puzzle based on a game show scenario.">
+     <meta name="author" content="aGold">
+     <meta property="og:image" content="./media/i.png">
+     <meta property="og:site_name" content="Monty Hall Problem Simulation">
+     <meta name="theme-color" content="#2F3136">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monty Hall Problem Simulation</title>
+    <link rel="stylesheet" href="mhp.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Monty Hall Problem Simulation</h1>
+        <div class="score">
+            <p>Wins: <span id="win-count">0</span></p>
+            <p>Losses: <span id="loss-count">0</span></p>
+        </div>
+        <div class="doors">
+            <div class="door" onclick="chooseDoor(1)">Door 1</div>
+            <div class="door" onclick="chooseDoor(2)">Door 2</div>
+            <div class="door" onclick="chooseDoor(3)">Door 3</div>
+        </div>
+        <p id="message">Choose a door!</p>
+        <button id="switch-btn" onclick="switchDoor()" style="display: none;">Switch Door</button>
+        <button id="stay-btn" onclick="stay()" style="display: none;">Stay</button>
+        <p align="justify" style="opacity: 50%">In this game, you are presented with three doors. Behind one door is a prize, and the other two have nothing. Pick a door as your initial choice. Then, one of the other doors with no prize will be revealed. You can either stick with your initial choice or switch to the other remaining door. Try to maximize your streak of consecutive wins!
+You sent
+gege
+</p>
+    </div>
+
+    <script src="mhp.js"></script>
+</body>
+</html>
