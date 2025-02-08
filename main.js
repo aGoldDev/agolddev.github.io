@@ -1,20 +1,14 @@
-const sections = document.querySelectorAll('section');
-const sidebarLinks = document.querySelectorAll('.sidebar a');
+function showSidebar() {
+    const sidebar = document.querySelector('.sidebar');
+    const mb = document.querySelector('.menu-button');
+    sidebar.classList.add('show'); // Add the class to slide it in
+    mb.style.display = 'none'
+}
 
-window.addEventListener('scroll', () => {
-    let current = '';
+function hideSidebar() {
+    const sidebar = document.querySelector('.sidebar');
+    const mb = document.querySelector('.menu-button');
+    sidebar.classList.remove('show'); // Remove the class to slide it out
+    mb.style.display = 'block'
+}
 
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        if (pageYOffset >= sectionTop - 60) {
-            current = section.getAttribute('id');
-        }
-    });
-
-    sidebarLinks.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href').includes(current)) {
-            link.classList.add('active');
-        }
-    });
-});
