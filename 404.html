@@ -2,71 +2,158 @@
 <html lang="en">
 
 <head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Not Found</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 - Page Not Found</title>
   <style>
     :root {
       --main: #00140c;
-      --dark: #fefcfb;
-      --blue: #00140c;
-      --blue2: #034078;
+      --dark: #011915;
+      --blue2: #000c0a;
       --cyan: #02d07d;
     }
 
-    /* General styling */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: "Poppins", sans-serif;
+    /* Keyframes for fade-in animation */
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
-    html,
     body {
+      font-family: 'Montserrat', sans-serif;
+      text-align: center;
       background-color: var(--main);
-      color: var(--dark);
+      margin: 0;
+      padding: 0;
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
+      justify-content: space-between;
       min-height: 100vh;
-      text-align: center;
-      padding: 10px;
     }
 
-    /* Header */
-    h1 {
-      font-size: 3rem;
+    .error-container {
+      margin-top: 100px;
+      max-width: 600px;
+      width: 100%;
+      padding: 20px;
+      flex-grow: 1;
+      animation: fadeIn 1s ease-out forwards;
+    }
+
+    .error-container img {
+      width: 100%;
+      max-width: 300px;
+      height: auto;
+    }
+
+    .error-container h1 {
+      font-size: 4rem;
       color: var(--cyan);
-      margin-bottom: 20px;
+      margin: 20px 0;
+      opacity: 0;
+      animation: fadeIn 1s ease-out forwards;
+      animation-delay: 0.2s;
     }
 
-    /* Paragraph */
-    p {
-      font-size: 1rem;
-      color: white;
-      margin-top: 10px;
+    .error-container p {
+      font-size: 1.5rem;
+      color: #7f8c8d;
+      margin: 10px 0;
+      opacity: 0;
+      animation: fadeIn 1s ease-out forwards;
+      animation-delay: 0.4s;
     }
 
-    /* Link styling */
-    a {
+    .btn-home {
+      background-color: transparent;
+      border: 3px solid var(--cyan);
       color: var(--cyan);
-      font-weight: bold;
+      padding: 10px 20px;
       text-decoration: none;
+      font-size: 1.2rem;
+      border-radius: 12px;
+      transition: all 0.3s ease-in-out;
+      display: inline-block;
+      margin-top: 20px;
     }
 
-    a:hover {
-      text-decoration: underline;
+    .btn-home:hover {
+      transform: translateY(-15px);
+      background-color: var(--cyan);
+      color: #121212;
     }
+
+    /* Footer Animation */
+    footer {
+      background-color: var(--blue2);
+      color: var(--cyan);
+      text-align: center;
+      padding: 20px;
+      font-size: 1rem;
+      width: 100%;
+      opacity: 0;
+      animation: fadeIn 1s ease-out forwards;
+      animation-delay: 0.6s;
+    }
+
+    footer p {
+      margin: 0;
+    }
+
+    /* Media Queries for smaller devices */
+    @media (max-width: 768px) {
+      .error-container h1 {
+        font-size: 3rem;
+      }
+
+      .error-container p {
+        font-size: 1.2rem;
+      }
+
+      .btn-home {
+        font-size: 1rem;
+        padding: 8px 16px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .error-container h1 {
+        font-size: 2.5rem;
+      }
+
+      .error-container p {
+        font-size: 1rem;
+      }
+
+      .btn-home {
+        font-size: 0.9rem;
+        padding: 6px 12px;
+      }
+    }
+
   </style>
 </head>
 
 <body>
-  <h1>Not Found</h1>
-  <p>It seems that the requested content <strong>doesn't exist.</strong></p>
-  <p>Return to <a href="index.html">Home</a></p>
+  <div class="error-container">
+    <h1>PAGE NOT FOUND</h1>
+    <p>Oops, looks like this page went missing!</p>
+    <a href="./index.html" class="btn-home">Return to Homepage</a>
+  </div>
+
+  <footer>
+    <p>© aGold 2023-2025</p>
+  </footer>
 </body>
 
 </html>
