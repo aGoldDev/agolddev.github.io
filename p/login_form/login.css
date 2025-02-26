@@ -2,154 +2,362 @@
 
 :root {
     --main: #00140c;
-    --dark: #fefcfb;
+    --dark: #011915;
     --blue2: #000c0a;
     --cyan: #02d07d;
+    --txt: white;
+    --txt2: #bbb;
 }
 
+
+.light-mode {
+    --main: #f8f9fa;
+    --dark: #e9ecef;
+    --blue2: #dee2e6;
+    --cyan: #007f5f;
+    --txt: black;
+    --txt2: #555;
+}
+
+::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+::-webkit-scrollbar {
+    width: 3px;
+    height: 3px;
+    background-color: transparent;
+    border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--cyan);
+    border-radius: 8px;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* custom cursor */
+
+/* Main cursor */
+.cursor-gradient {
+    display: grid;
+    position: fixed;
+    width: 20px;
+    /* Cursor size */
+    height: 20px;
+    /* Cursor size */
+    border: 3px solid var(--cyan);
+    border-radius: 50%;
+    /* Make it circular */
+    background-color: transparent;
+    pointer-events: none;
+    z-index: 1000;
+    /* Ensure it is on top */
+    transform: translate(-50%, -50%);
+    opacity: 0.9;
+}
+
+/* Trail dot */
+.trail {
+    position: fixed;
+    width: 10px;
+    /* Size of the trail dot */
+    height: 10px;
+    /* Size of the trail dot */
+    background-color: var(--cyan);
+    /* Trail dot color */
+    border-radius: 50%;
+    /* Make it circular */
+    pointer-events: none;
+    z-index: 999;
+    /* Ensure trail is beneath cursor */
+    opacity: 0.6;
+    animation: trailAnimation 1s forwards;
+}
+
+@keyframes trailAnimation {
+    0% {
+        opacity: 0.6;
+        transform: scale(1) translate(-50%, -50%);
+    }
+
+    100% {
+        opacity: 0;
+        transform: scale(0) translate(-50%, -50%);
+    }
+}
+
+
+/* Html part */
+
+svg {
+    fill: var(--cyan) !important;
+}
+
+a:not(.forgot-password) {
+    color: var(--cyan);
+    text-decoration: none;
+    position: relative;
+}
+
+a:not(.forgot-password)::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0.09em;
+    background-color: var(--cyan);
+    opacity: 0;
+    transition: opacity 300ms, transform 300ms;
+}
+
+a:not(.forgot-password):hover::after,
+a:not(.forgot-password):focus::after {
+    opacity: 1;
+    transform: translate3d(0, 0.2em, 0);
+}
+
+/* Global Styles */
 * {
+    font-family: 'Poppins', sans-serif;
+    cursor: none !important;
+}
+
+body {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-    font-family: "Poppins", sans-serif;
-}
-
-html {
     background-color: var(--main);
-    color: var(--dark);
-}
-
-body,
-.login-container {
+    color: var(--cyan);
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
-    margin: 0;
-    padding: 20px;
+    height: 100vh;
+    flex-direction: column;
 }
 
-.login-container {
-    background-color: var(--blue2);
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+.main-content {
+    position: relative;
+    text-align: center;
     width: 100%;
     max-width: 400px;
+}
+
+
+/* Login Container */
+.login-container {
+    background-color: var(--blue2);
+    padding: 2rem;
+    border-radius: 8px;
     text-align: center;
-    flex-direction: column; /* Ensure elements are stacked vertically */
+    box-shadow: 4px 4px 0 var(--cyan);
+    position: relative;
+    z-index: 1;
+    max-width: 400px;
 }
 
 h1 {
-    color: var(--cyan);
-    font-size: 2rem;
-    margin-bottom: 20px; /* Spacing below the title */
+    margin-bottom: 1rem;
 }
 
-/* Form input styling */
+/* Form Styles */
 .form-group {
-    margin-bottom: 20px;
+    margin-bottom: 1rem;
     text-align: left;
-    width: 100%;
 }
 
-.form-group label {
+label {
     display: block;
-    color: #f0fff0;
-    font-size: 1rem;
-    margin-bottom: 5px;
 }
 
-.form-group input {
-    width: 100%;
-    padding: 10px;
-    font-size: 1rem;
-    color: #333;
-    border: 1px solid #ddd;
-    border-radius: 5px;
+input {
+    width: 90%;
+    padding: 0.8rem;
+    border-radius: 4px;
+    border: 2px solid var(--cyan);
+    margin-top: 5px;
+    background-color: transparent !important;
+    color: var(--txt) !important;
+    caret-color: var(--cyan);
+    transition: all 0.3s ease-in-out;
+    box-shadow: 4px 4px var(--cyan);
 }
 
-/* Password container with button */
+input::placeholder {
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+input:focus::placeholder {
+    opacity: 0.7;
+    transform: translateX(8px);
+}
+
+input:focus {
+    outline: 2px solid var(--cyan);
+}
+
+/* Password Container */
 .password-container {
     display: flex;
     align-items: center;
+    position: relative;
 }
 
-.password-container input {
-    width: calc(100% - 50px);
-    border-radius: 5px 0 0 5px;
-}
-
-.password-container button {
-    padding: 13px;
-    width: 50px;
-    background-color: var(--cyan);
+.toggle-password {
+    position: absolute;
+    right: 10px;
+    top: 14px;
+    background: none;
     border: none;
-    color: var(--blue2);
-    font-weight: bold;
-    border-radius: 0 5px 5px 0;
-    cursor: pointer;
 }
 
-.forgot-password {
-  display: block;
-  text-align: right;
-  margin-top: 5px;
-  color: var(--cyan); /* Matches your color scheme */
-  font-size: 0.9rem; /* Slightly smaller text */
-  text-decoration: none;
-}
-
-button[type="submit"] {
-    width: 100%;
-    padding: 10px;
-    background-color: var(--blue2);
-    color: var(--cyan);
-    font-size: 1rem;
-    font-weight: bold;
+/* Buttons */
+.btn {
+    background-color: transparent;
     border: 3px solid var(--cyan);
-    border-radius: 0 5px 5px 0;
-    cursor: pointer;
-    margin-top: 10px;
+    color: var(--cyan);
+    padding: 0.8rem;
+    width: 100%;
+    border-radius: 4px;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5;
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 4px 4px var(--cyan);
 }
 
-button[type="submit"]:hover,
-button[type="submit"]:focus{
-  background-color: var(--cyan);
-  color: var(--blue2);
-  transform: translate3d(0, 0.2em, 0)
+.btn:hover {
+    transform: translate(4px, 4px);
+    /* background-color: var(--cyan);
+    color: #121212; */
+    box-shadow: none;
+
 }
 
-/* Link styling */
-.signup-link {
-    margin-top: 20px;
+/* Forgot Password & Signup */
+.forgot-password {
     font-size: 0.9rem;
-    color: #f0fff0;
-}
-
-.signup-link a {
+    display: block;
+    text-align: right;
+    margin-top: 15px;
     color: var(--cyan);
     text-decoration: none;
 }
 
-/* Responsive Design */
+p {
+    color: var(--txt);
+}
+
+
+/* Theme Toggle Button */
+#theme-toggle {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    fill: var(--cyan);
+    font-size: 1.5rem;
+    z-index: 10;
+}
+
+/* Footer */
+footer {
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    margin-top: 1rem;
+    font-size: 0.9rem;
+}
+
+/* Make input fields and buttons more compact for smaller screens */
 @media (max-width: 768px) {
-    .login-container {
-        padding: 20px;
-        max-width: 90%;
+
+    .cursor-gradient,
+    .trail {
+        display: none;
     }
 
-    h1 {
-        font-size: 1.8rem;
+
+    .main-content {
+        max-width: 90%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 1.5rem;
+    }
+
+    .login-container {
+        padding: 1.5rem;
+        box-shadow: 3px 3px 0 var(--cyan);
+    }
+
+    input,
+    .btn {
+        padding: 0.7rem;
+        font-size: 0.9rem;
+    }
+
+    .toggle-password {
+        top: 12px;
+        right: 8px;
+    }
+
+    #theme-toggle {
+        font-size: 1.2rem;
+        top: 8px;
+        right: 8px;
     }
 }
 
+@media (max-width: 500px) {
+    .login-container {
+        padding: 1.5rem;
+    }
+
+    #theme-toggle {
+        top: 5px;
+        right: 5px;
+        font-size: 1.2rem;
+    }
+}
+
+/* Further adjustments for very small screens */
 @media (max-width: 480px) {
     .login-container {
-        padding: 15px;
+        padding: 1rem;
+        border-radius: 6px;
+        box-shadow: 2px 2px 0 var(--cyan);
     }
 
     h1 {
         font-size: 1.5rem;
+    }
+
+    input,
+    .btn {
+        padding: 0.6rem;
+        font-size: 0.85rem;
+    }
+
+    .forgot-password {
+        font-size: 0.8rem;
+    }
+
+    footer {
+        font-size: 0.8rem;
     }
 }

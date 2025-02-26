@@ -51,25 +51,35 @@
 .cursor-gradient {
   display: grid;
   position: fixed;
-  width: 20px; /* Cursor size */
-  height: 20px; /* Cursor size */
+  width: 20px;
+  /* Cursor size */
+  height: 20px;
+  /* Cursor size */
   border: 3px solid var(--cyan);
-  border-radius: 50%; /* Make it circular */
-  background-color:transparent;
+  border-radius: 50%;
+  /* Make it circular */
+  background-color: transparent;
   pointer-events: none;
-  z-index: 1000; /* Ensure it is on top */
+  z-index: 1000;
+  /* Ensure it is on top */
   transform: translate(-50%, -50%);
   opacity: 0.9;
 }
+
 /* Trail dot */
 .trail {
   position: fixed;
-  width: 10px; /* Size of the trail dot */
-  height: 10px; /* Size of the trail dot */
-  background-color: var(--cyan); /* Trail dot color */
-  border-radius: 50%; /* Make it circular */
+  width: 10px;
+  /* Size of the trail dot */
+  height: 10px;
+  /* Size of the trail dot */
+  background-color: var(--cyan);
+  /* Trail dot color */
+  border-radius: 50%;
+  /* Make it circular */
   pointer-events: none;
-  z-index: 999; /* Ensure trail is beneath cursor */
+  z-index: 999;
+  /* Ensure trail is beneath cursor */
   opacity: 0.6;
   animation: trailAnimation 1s forwards;
 }
@@ -79,6 +89,7 @@
     opacity: 0.6;
     transform: scale(1) translate(-50%, -50%);
   }
+
   100% {
     opacity: 0;
     transform: scale(0) translate(-50%, -50%);
@@ -230,7 +241,10 @@ nav {
 
 /* Hide elements on mobile and show menu button */
 @media (max-width: 800px) {
-  .hideOnMobile {
+
+  .hideOnMobile,
+  .cursor-gradient,
+  .trail {
     display: none;
   }
 
@@ -376,18 +390,19 @@ nav {
 }
 
 /* #home img {
-  border: 5px solid var(--cyan); 
-  height: 250px;
-  width: 250px;
-  margin: 0 20px;
-  display: block;
-  border-radius: 100%;
-  z-index: 1;
-} */
+    border: 5px solid var(--cyan); 
+    height: 250px;
+    width: 250px;
+    margin: 0 20px;
+    display: block;
+    border-radius: 100%;
+    z-index: 1;
+  } */
 
 .img-container {
   position: relative;
-  width: 210px; /* Adjust as needed */
+  width: 210px;
+  /* Adjust as needed */
   height: 210px;
   border-radius: 50%;
   overflow: hidden;
@@ -399,7 +414,8 @@ nav {
 .img-container::before {
   content: "";
   position: absolute;
-  inset: -5px; /* Adjust border thickness */
+  inset: -5px;
+  /* Adjust border thickness */
   border-radius: 50%;
   background: var(--cyan);
   z-index: 0;
@@ -423,10 +439,12 @@ nav {
     opacity: 1;
     transform: scale(1);
   }
+
   50% {
     opacity: 0.5;
     transform: scale(1.05);
   }
+
   100% {
     opacity: 1;
     transform: scale(1);
@@ -443,9 +461,9 @@ nav {
 }
 
 /* #home .hdr::before,
-#home .hdr::after {
-  content: none;
-} */
+  #home .hdr::after {
+    content: none;
+  } */
 
 #home p {
   font-size: 1.1rem;
